@@ -11,11 +11,20 @@ public class DevmateMainPage extends Page {
         super(driver);
     }
 
+    @FindBy(linkText = "FEATURES")
+    private WebElement featuresLink;
+
     @FindBy(css = ".btn.btn-construct.btn-sign-up-now") //(xpath = "//*[contains(text(), 'Sign Up Now')]")
     private WebElement signUpNowButton;
 
     public DevmateSignUpPage goToSignUpPage() {
         signUpNowButton.click();
         return new DevmateSignUpPage(driver);
+    }
+
+    public DevmateFeaturesPage goToFeaturesPage() {
+        featuresLink.click();
+        waitForAjaxCompletion();
+        return new DevmateFeaturesPage(driver);
     }
 }
