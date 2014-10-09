@@ -2,10 +2,12 @@ package com.macpaw.pages;
 
 import com.macpaw.utils.ProjectConfiguration;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
@@ -15,20 +17,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//import static com.macpaw.common.BasicSeleniumTestCase.driver;
-
 public abstract class Page {
 
     protected WebDriver driver;
-    protected String pageURL = "";
 
     public Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-    }
-
-    public void openPage() {
-        driver.get(pageURL);
     }
 
     public void openPage(String url){
@@ -41,11 +36,6 @@ public abstract class Page {
 
     public String getPageUrl() {
         return driver.getCurrentUrl();
-    }
-
-    public void waitForElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public void waitForAjaxCompletion() {
@@ -73,9 +63,5 @@ public abstract class Page {
             e.printStackTrace();
         }
         Reporter.log("<a href=\"../screenshots/" + screenshotFilename + "\"><img src=\"../screenshots/" + screenshotFilename + "\" alt=\"Screenshot\" width=\"25%\" height=\"25%\">");
-    }
-
-    public boolean isImageCorrect(String targetImageURI, String originalImageURI) {
-        return false;
     }
 }
