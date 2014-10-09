@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Devmate tests in Chrome"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="5.849">
+  <properties />
+  
+  
+            <testcase name="testThatSolutionFieldBecomesVisible" time="2.556" classname="com.macpaw.devmate.DevmateTests" />
+                <testcase name="testThatPicturesDisplayed" time="3.293" classname="com.macpaw.devmate.DevmateTests" />
+      
+</testsuite>
