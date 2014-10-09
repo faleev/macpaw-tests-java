@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Suites"/>
+<suite name="All Tests">
+    <test name="Devmate tests in Chrome">
+        <parameter name="environment" value="chrome-local"/>
+        <classes>
+            <class name="com.macpaw.devmate.DevmateTests"/>
+        </classes>
+    </test>
+    <test name="Devmate tests in Firefox">
+        <parameter name="environment" value="firefox-local"/>
+        <classes>
+            <class name="com.macpaw.devmate.DevmateTests"/>
+        </classes>
+    </test>
+</suite>
